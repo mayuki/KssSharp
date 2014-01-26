@@ -13,7 +13,7 @@ namespace KssSharp
     /// more information.
     /// </summary>
     [DebuggerDisplay("Modifier: Name={Name}, Description={Description}")]
-    public class StyleGuideModifier
+    public class StyleguideModifier
     {
         /// <summary>
         /// Returns the modifier name String.
@@ -30,7 +30,7 @@ namespace KssSharp
         /// </summary>
         /// <param name="name">The name String of the modifier.</param>
         /// <param name="description">The description String of the modifier.</param>
-        public StyleGuideModifier(String name, String description)
+        public StyleguideModifier(String name, String description)
         {
             Name = name;
             Description = description;

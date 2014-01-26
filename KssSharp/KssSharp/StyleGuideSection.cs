@@ -15,7 +15,7 @@ namespace KssSharp
     /// modifiers, and styleguide reference.
     /// </summary>
     [DebuggerDisplay("Section: Section={Section}, FileName={FileName}")]
-    public class StyleGuideSection
+    public class StyleguideSection
     {
         private Lazy<String[]> _commentSections;
         private Lazy<String> _section;
@@ -33,7 +33,7 @@ namespace KssSharp
         /// <summary>
         /// Initialize a new Section
         /// </summary>
-        public StyleGuideSection()
+        public StyleguideSection()
             : this(null, null)
         {
         }
@@ -43,7 +43,7 @@ namespace KssSharp
         /// </summary>
         /// <param name="commentText">The raw comment String, minus any comment syntax.</param>
         /// <param name="fileName">The filename as a String.</param>
-        public StyleGuideSection(String commentText, String fileName)
+        public StyleguideSection(String commentText, String fileName)
         {
             Raw = commentText;
             FileName = fileName;
@@ -95,12 +95,12 @@ namespace KssSharp
         /// The modifiers section of a styleguide comment block.
         /// Returns an Array of Modifiers.
         /// </summary>
-        public IEnumerable<StyleGuideModifier> Modifiers
+        public IEnumerable<StyleguideModifier> Modifiers
         {
             get
             {
                 var lastIndent = -1;
-                var modifiers = new List<StyleGuideModifier>();
+                var modifiers = new List<StyleguideModifier>();
 
                 if (ModifiersComment == null)
                 {
@@ -121,7 +121,7 @@ namespace KssSharp
                         var parts = line.Split(new[] {" - "}, 2, StringSplitOptions.None);
                         if (parts.Length == 2)
                         {
-                            modifiers.Add(new StyleGuideModifier(parts[0].Trim(), parts[1].Trim()));
+                            modifiers.Add(new StyleguideModifier(parts[0].Trim(), parts[1].Trim()));
                         }
                     }
 

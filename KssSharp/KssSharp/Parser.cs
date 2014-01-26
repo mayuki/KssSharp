@@ -20,7 +20,7 @@ namespace KssSharp
         /// <summary>
         /// Returns a hash of Sections.
         /// </summary>
-        public IDictionary<String, StyleGuideSection> Sections { get; private set; }
+        public IDictionary<String, StyleguideSection> Sections { get; private set; }
 
         /// <summary>
         /// Initializes a new parser based on a directory of files or kss strings.
@@ -30,7 +30,7 @@ namespace KssSharp
         /// <param name="pathsOrStrings">Each path String where style files are located, or each String containing KSS.</param>
         public Parser(IEnumerable<String> pathsOrStrings)
         {
-            Sections = new Dictionary<String, StyleGuideSection>();
+            Sections = new Dictionary<String, StyleguideSection>();
             foreach (var pathOrString in pathsOrStrings)
             {
                 if (Directory.Exists(pathOrString))
@@ -64,7 +64,7 @@ namespace KssSharp
         private void AddSection(String commentText, String fileName = "")
         {
             var baseName = Path.GetFileName(fileName);
-            var section = new StyleGuideSection(commentText, baseName);
+            var section = new StyleguideSection(commentText, baseName);
             Sections[section.Section] = section;
         }
 
@@ -85,9 +85,9 @@ namespace KssSharp
         /// </summary>
         /// <param name="reference"></param>
         /// <returns>Returns a Section for a reference, or a blank Section if none found.</returns>
-        public StyleGuideSection Section(String reference)
+        public StyleguideSection Section(String reference)
         {
-            return Sections.ContainsKey(reference) ? Sections[reference] : new StyleGuideSection();
+            return Sections.ContainsKey(reference) ? Sections[reference] : new StyleguideSection();
         }
     }
 }
