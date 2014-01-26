@@ -139,7 +139,7 @@ namespace KssSharp
 
         private String ModifiersComment
         {
-            get { return CommentSections.Skip(1).Where(section => section != SectionComment).LastOrDefault(); }
+            get { return CommentSections.Skip(1).LastOrDefault(section => section != SectionComment); }
         }
     }
 }
