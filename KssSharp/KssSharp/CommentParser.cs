@@ -63,7 +63,7 @@ namespace KssSharp
         public static String ParseSingleLine(String line)
         {
             return Regex.Replace(line, @"\s*//", "")
-                        .TrimStart();
+                        .TrimEnd();
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace KssSharp
         public static String ParseMultiLine(String line)
         {
             return Regex.Replace(Regex.Replace(line, @"\s*/\*", ""), @"\*/", "")
-                        .TrimStart();
+                        .TrimEnd();
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace KssSharp
 
             // Strip out any preceding [whitespace]* that occur on every line. Not
             // the smartest, but I wonder if I care.
-            textBlock = Regex.Replace(textBlock, @"^(\s*\*+)", "");
+            textBlock = Regex.Replace(textBlock, @"^(\s*\*+)", "", RegexOptions.Multiline);
 
             // Strip consistent indenting by measuring first line's whitespace
             var indentSize = -1;
