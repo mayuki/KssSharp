@@ -5,9 +5,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace KssSharp.Test
 {
     [TestClass]
-    public class StyleguideSectionTest
+    public class StyleguideSectionExTest
     {
-        private string CommentText = @"
+        private readonly string CommentText = @"
 # Form Button
 
 Your standard form button.
@@ -16,6 +16,9 @@ Your standard form button.
 :disabled - Dims the button when disabled.
 .primary  - Indicates button is the primary action.
 .smaller  - A smaller button
+
+Markup: <button class=""{$modifiers}"">Button Content1</button>
+        <button class=""{$modifiers}"">Button Content2</button>
 
 Styleguide 2.1.1.
 ".Replace("\r\n", "\n").Trim();
@@ -27,6 +30,13 @@ Styleguide 2.1.1.
             _section = new StyleguideSection(CommentText, "example.css");
         }
 
+        [TestMethod]
+        public void ParsesMarkup()
+        {
+            _section.Markup.Is("<button class=\"{$modifiers}\">Button Content1</button>\n        <button class=\"{$modifiers}\">Button Content2</button>");
+        }
+
+        #region Original StyleguideSectionTest
         [TestMethod]
         public void ParsesDescription()
         {
@@ -63,5 +73,6 @@ Styleguide 2.1.1.
             _section = new StyleguideSection(CommentText.Replace("2.1.1", "Buttons - Truly Lime"), "example.css");
             _section.Section.Is("Buttons - Truly Lime");
         }
+        #endregion
     }
 }

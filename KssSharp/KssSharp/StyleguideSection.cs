@@ -87,7 +87,7 @@ namespace KssSharp
             get
             {
                 return String.Join("\n\n",
-                    CommentSections.Where(section => !(section == SectionComment || section == ModifiersComment))); // unless
+                    CommentSections.Where(section => !(section == SectionComment || section == ModifiersComment || section == MarkupComment))); // unless
             }
         }
 
@@ -131,6 +131,22 @@ namespace KssSharp
                 return modifiers;
             }
         }
+        /// <summary>
+        /// The markup section of a styleguide comment block.
+        /// Returns the description String.
+        /// </summary>
+        public String Markup
+        {
+            get
+            {
+                return MarkupComment.Substring("Markup: ".Length);
+            }
+        }
+
+        private String MarkupComment
+        {
+            get { return CommentSections.FirstOrDefault(x => x.StartsWith("Markup: ", StringComparison.OrdinalIgnoreCase)) ?? ""; }
+        }
 
         private String SectionComment
         {
@@ -139,7 +155,7 @@ namespace KssSharp
 
         private String ModifiersComment
         {
-            get { return CommentSections.Skip(1).LastOrDefault(section => section != SectionComment); }
+            get { return CommentSections.Skip(1).LastOrDefault(section => section != SectionComment && section != MarkupComment); }
         }
     }
 }
