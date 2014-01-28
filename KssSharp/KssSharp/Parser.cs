@@ -28,6 +28,17 @@ namespace KssSharp
         /// that look like KSS.
         /// </summary>
         /// <param name="pathsOrStrings">Each path String where style files are located, or each String containing KSS.</param>
+        public Parser(params String[] pathsOrStrings)
+            : this(pathsOrStrings as IEnumerable<String>)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new parser based on a directory of files or kss strings.
+        /// Scans within the directory recursively or the strings for any comment blocks
+        /// that look like KSS.
+        /// </summary>
+        /// <param name="pathsOrStrings">Each path String where style files are located, or each String containing KSS.</param>
         public Parser(IEnumerable<String> pathsOrStrings)
         {
             Sections = new Dictionary<String, StyleguideSection>();
