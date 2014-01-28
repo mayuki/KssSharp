@@ -15,7 +15,7 @@ namespace KssSharp
     /// // Single line style.
     /// /* Multi-line style. */
     /// </summary>
-    public class CommentParser
+    internal class CommentParser
     {
         private CommentParserOption _option;
         private String _filePath;

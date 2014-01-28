@@ -74,7 +74,7 @@ namespace KssSharp
         /// </summary>
         /// <param name="cleanedComment"></param>
         /// <returns>Returns a boolean indicating whether the block conforms to KSS.</returns>
-        public static Boolean IsKssBlock(String cleanedComment)
+        private static Boolean IsKssBlock(String cleanedComment)
         {
             var possibleReference = cleanedComment.Split(new[] {"\n\n"}, StringSplitOptions.None).Last();
             return StyleguidePattern.IsMatch(possibleReference);
