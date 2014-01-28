@@ -2,7 +2,7 @@ KssSharp
 ========
 [![Build status](https://ci.appveyor.com/api/projects/status?id=7rvmhdf1el1dmqyv)](https://ci.appveyor.com/project/ksssharp)
 
-A .NET Implementation of KSS( https://github.com/kneath/kss ): A methodology for documenting CSS and generating styleguides
+A .NET(C#) Implementation of KSS( https://github.com/kneath/kss ): A methodology for documenting CSS and generating styleguides
 
 
 Installation
@@ -14,6 +14,11 @@ Install-Package KssSharp
 ```
 
 https://www.nuget.org/packages/KssSharp/
+
+
+Requirements
+------------
+- .NET Framework 4.5 or later
 
 
 .NET Library
