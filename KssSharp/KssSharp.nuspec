@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>KssSharp</id>
-        <version>1.1.0</version>
+        <version>1.1.1</version>
         <authors>Mayuki Sawatari</authors>
         <owners>Mayuki Sawatari</owners>
         <licenseUrl>https://github.com/mayuki/KssSharp/blob/master/LICENSE</licenseUrl>
@@ -12,6 +12,6 @@
         <tags>KSS CSS Sass LESS</tags>
     </metadata>
     <files>
-        <file src="KssSharp\bin\Release\KssSharp.dll" target="lib\net45\KssSharp.dll" />
+        <file src="KssSharp\bin\Release\KssSharp.dll" target="lib\net40\KssSharp.dll" />
     </files>
 </package>
