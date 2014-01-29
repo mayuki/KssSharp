@@ -36,6 +36,13 @@ Styleguide 2.1.1.
             _section.Markup.Is("<button class=\"{$modifiers}\">Button Content1</button>\n        <button class=\"{$modifiers}\">Button Content2</button>");
         }
 
+        [TestMethod]
+        public void ParsesNoMarkup()
+        {
+            _section = new StyleguideSection(CommentText.Replace("Markup", "______"), "example.css");
+            _section.Markup.Is("");
+        }
+
         #region Original StyleguideSectionTest
         [TestMethod]
         public void ParsesDescription()
