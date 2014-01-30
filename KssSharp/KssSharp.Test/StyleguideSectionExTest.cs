@@ -18,7 +18,7 @@ Your standard form button.
 .smaller  - A smaller button
 
 Markup: <button class=""{$modifiers}"">Button Content1</button>
-        <button class=""{$modifiers}"">Button Content2</button>
+        <button class=""{$modifiers}""><img src=""http://www.example.com/"" alt=""Button Content2"" /></button>
 
 Styleguide 2.1.1.
 ".Replace("\r\n", "\n").Trim();
@@ -33,7 +33,7 @@ Styleguide 2.1.1.
         [TestMethod]
         public void ParsesMarkup()
         {
-            _section.Markup.Is("<button class=\"{$modifiers}\">Button Content1</button>\n        <button class=\"{$modifiers}\">Button Content2</button>");
+            _section.Markup.Is("<button class=\"{$modifiers}\">Button Content1</button>\n        <button class=\"{$modifiers}\"><img src=\"http://www.example.com/\" alt=\"Button Content2\" /></button>");
         }
 
         [TestMethod]

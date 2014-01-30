@@ -144,9 +144,20 @@ namespace KssSharp
             }
         }
 
+        /// <summary>
+        /// The header of a styleguide comment block.
+        /// Returns the header String.
+        /// </summary>
+        public String Header
+        {
+            get
+            {
+                return CommentSections.FirstOrDefault(section => !(section == SectionComment || section == ModifiersComment || section == MarkupComment)) ?? "";
+            }
+        }
         private String MarkupComment
         {
-            get { return CommentSections.FirstOrDefault(x => x.StartsWith("Markup: ", StringComparison.OrdinalIgnoreCase)) ?? ""; }
+            get { return CommentSections.FirstOrDefault(x => x.TrimStart().StartsWith("Markup: ", StringComparison.OrdinalIgnoreCase)) ?? ""; }
         }
 
         private String SectionComment
@@ -156,7 +167,7 @@ namespace KssSharp
 
         private String ModifiersComment
         {
-            get { return CommentSections.Skip(1).LastOrDefault(section => section != SectionComment && section != MarkupComment); }
+            get { return CommentSections.Skip(1).Where(x => x.Contains(" - ")).LastOrDefault(section => section != SectionComment && section != MarkupComment); }
         }
     }
 }

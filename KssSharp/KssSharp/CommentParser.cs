@@ -62,7 +62,7 @@ namespace KssSharp
         /// <returns></returns>
         public static String ParseSingleLine(String line)
         {
-            return Regex.Replace(line, @"\s*//", "")
+            return Regex.Replace(line, @"^\s*//", "")
                         .TrimEnd();
         }
 
