@@ -140,7 +140,7 @@ namespace KssSharp
             get
             {
                 var markupComment = MarkupComment;
-                return String.IsNullOrWhiteSpace(markupComment) ? "" : markupComment.Substring("Markup: ".Length);
+                return String.IsNullOrWhiteSpace(markupComment) ? "" : markupComment.TrimStart().Substring("Markup: ".Length);
             }
         }
 
